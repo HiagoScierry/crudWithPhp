@@ -26,12 +26,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
+                <?php
+                require('../Controller/usersController.php');
+                $ctx = new userController();
+                $users = $ctx->getAllUsers();
+                foreach ($users as $user) {
+                    echo (' 
+                    <tr>
+                        <th scope="row">' . $user['id'] . '</th>
+                        <td>' . $user['nome'] . '</td>
+                        <td>' . $user['idade'] . '</td>
+                        <td>' . $user['parentesco'] . '</td>
+                    </tr>');
+                };
+                ?>
             </tbody>
         </table>
     </div>

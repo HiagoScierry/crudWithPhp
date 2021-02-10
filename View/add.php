@@ -8,7 +8,7 @@
     <?php require('./components/header.php') ?>
 
     <div class="alignAdd">
-        <form>
+        <form name="addUser" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleInputEmail1">Nome :</label>
                 <input type="text" name="nome" class="form-control" placeholder="João">
@@ -33,5 +33,20 @@
                 </button>
             </a>
         </form>
+
+        <?php
+        require('../Controller/usersController.php');
+        $controller = new userController();
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $nome = $_POST['nome'];
+            $idade = $_POST['idade'];
+            $parentesco = $_POST['parentesco'];
+
+            $controller->createUser($nome, $idade, $parentesco);
+        }
+        ?>
+
     </div>
 </body>
