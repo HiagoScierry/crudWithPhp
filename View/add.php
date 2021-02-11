@@ -35,8 +35,8 @@
         </form>
 
         <?php
-        require('../Controller/usersController.php');
-        $controller = new userController();
+        require('../Controller/UsersController.php');
+        $controller = new UserController();
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -44,7 +44,8 @@
             $idade = $_POST['idade'];
             $parentesco = $_POST['parentesco'];
 
-            $controller->createUser($nome, $idade, $parentesco);
+            $id = $controller->createUser($nome, $idade, $parentesco);
+            echo ("USUARIO INSERIDO !");
         }
         ?>
 

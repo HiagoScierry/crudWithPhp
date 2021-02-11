@@ -23,12 +23,13 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Idade</th>
                     <th scope="col">Parentesco</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                require('../Controller/usersController.php');
-                $ctx = new userController();
+                require('../Controller/UsersController.php');
+                $ctx = new UserController();
                 $users = $ctx->getAllUsers();
                 foreach ($users as $user) {
                     echo (' 
@@ -37,6 +38,7 @@
                         <td>' . $user['nome'] . '</td>
                         <td>' . $user['idade'] . '</td>
                         <td>' . $user['parentesco'] . '</td>
+                        <td>   <button type="button" class="btn btn-danger">Excluir</button></td>
                     </tr>');
                 };
                 ?>
